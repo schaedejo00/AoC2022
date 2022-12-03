@@ -7,16 +7,17 @@ def getPriority(c):
         basePriority = 0
     return ord(c)-64+basePriority
 
-with open('input_1.txt', 'r') as f:
+with open('example.txt', 'r') as f:
     puzzleInput = np.genfromtxt(f, dtype=str, delimiter='\n')
 
 sum = 0
 for i in range(1, len(puzzleInput), 3):
-    rucksacks = puzzleInput[i-1:i*3]
+    rucksacks = [set(rucksack) for rucksack in puzzleInput[i-1:i*3]]
 
-    x = [c for c in rucksacks[0] if c in rucksacks[1] and c in rucksacks[2]][0]
+    x = [c for c in rucksacks[0] if c in rucksacks[1] and c in rucksacks[2]]
 
-    prio = getPriority(x)
+    print(rucksacks, x)
+    prio = getPriority(x[0])
     sum += prio
     print (rucksacks, x, prio)
 

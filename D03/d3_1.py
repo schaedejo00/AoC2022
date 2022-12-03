@@ -12,10 +12,11 @@ with open('input_1.txt', 'r') as f:
 
 sum = 0
 for rucksack in puzzleInput:
-    firstCompartment, secondCompartment = [c for c in rucksack[0:int(len(rucksack) / 2)]], [c for c in rucksack[int(len(rucksack) / 2):]]
+    firstCompartment, secondCompartment = set(rucksack[:int(len(rucksack) / 2)]), set(rucksack[int(len(rucksack) / 2):])
 
-    x = [c for c in firstCompartment if c in secondCompartment][0]
-    prio = getPriority(x)
+    x = [c for c in firstCompartment if c in secondCompartment]
+
+    prio = getPriority(x[0])
     sum += prio
     print (rucksack, x, prio)
 
