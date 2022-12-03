@@ -1,17 +1,17 @@
-import numpy as np
-from numpy import sort
-#A for Rock, B for Paper, and C for Scissors
-#X for Rock, Y for Paper, and Z for Scissors
 
-rules = {'A':{'X':3, 'Y':6, 'Z':0},
-         'B':{'X':0, 'Y':3, 'Z':6},
-         'C':{'X':6, 'Y':0, 'Z':3}}
+# A for Rock, B for Paper, and C for Scissors
+# X for Rock, Y for Paper, and Z for Scissors
 
-moves = {'X':1, 'Y':2, 'Z':3}
+rules = {'A': {'X': 3, 'Y': 6, 'Z': 0},
+         'B': {'X': 0, 'Y': 3, 'Z': 6},
+         'C': {'X': 6, 'Y': 0, 'Z': 3}}
 
-def score(game):
-    result = rules[game[0]][game[1]] + moves[game[1]]
-    print(game, result)
+moves = {'X': 1, 'Y': 2, 'Z': 3}
+
+
+def score(currentGame):
+    result = rules[currentGame[0]][currentGame[1]] + moves[currentGame[1]]
+    print(currentGame, result)
 
     return result
 
@@ -27,4 +27,3 @@ for game in puzzleInput:
     sum += score(game)
 
 print(sum)
-
